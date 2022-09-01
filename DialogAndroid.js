@@ -580,6 +580,7 @@ class DialogAndroid {
         allowEmptyInput,
         minLength,
         maxLength,
+        autofocus,
         ...finalOptions
       } = options;
 
@@ -591,6 +592,7 @@ class DialogAndroid {
       if (minLength) inputConfig.minLength = minLength;
       if (maxLength) inputConfig.maxLength = maxLength;
       if (keyboardType) inputConfig.keyboardType = keyboardType;
+      if (autofocus) inputConfig.autofocus = autofocus;
 
       const nativeConfig = {
         ...DialogAndroid.defaults,

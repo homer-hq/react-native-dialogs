@@ -448,6 +448,7 @@ public class DialogAndroid extends ReactContextBaseJavaModule {
                 if (mDialog != null)
                     mDialog.dismiss();
                 mDialog = mBuilder.build();
+                ReadableMap input = options.getMap("input");
 
                 if(numberOfItems > 0) {
                     WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -467,6 +468,9 @@ public class DialogAndroid extends ReactContextBaseJavaModule {
 
 
                 mDialog.show();
+                if (input.hasKey("autofocus") && input.getBoolean("autofocus")) {
+                    mDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                }
             }
         });
     }
